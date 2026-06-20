@@ -86,6 +86,7 @@ const footerGroups = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Auto Buying | Flat-fee car buying help</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="description"
       content="Smart Auto Buying gives car shoppers flat-fee guidance, negotiation support, and calm deal review without taking a cut from the car sale."
@@ -93,6 +94,11 @@ const footerGroups = [
   </head>
   <body>
     <header class="site-header">
+      <a class="brand site-brand" href="#home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Smart Auto Buying</span>
+      </a>
+
       <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span aria-hidden="true"></span>
@@ -112,37 +118,51 @@ const footerGroups = [
 
     <main>
       <section id="home" class="hero-section">
-        <div class="hero-copy hero-copy-centered">
-          <span class="hero-eyebrow">Flat-fee car buying support</span>
-          <h1>
-            <span>Smart Auto Buying</span>
-            <span>A car buying advocate,<br />not a traditional broker</span>
-          </h1>
-          <p>
-            You pay a small flat fee for help. Smart Auto Buying does not profit from the car deal,
-            so the advice stays aligned with you.
-          </p>
-          <a class="button" href="#contact">Start your search</a>
-        </div>
-
-        <div class="hero-device-wrap" aria-hidden="true">
-          <span class="hero-device-backdrop"></span>
-          <div class="hero-device">
-            <div class="hero-device-notch"></div>
-            <div class="hero-device-screen">
-              <div class="hero-device-topline">
-                <span>Today</span>
-                <span class="hero-device-pill">3 quotes</span>
-              </div>
-
-              <div class="hero-device-visual">
-                <span class="hero-device-car"></span>
-                <span class="hero-device-road"></span>
-                <span class="hero-device-wheel hero-device-wheel-left"></span>
-                <span class="hero-device-wheel hero-device-wheel-right"></span>
-              </div>
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">Flat-fee car buying support</span>
+            <h1>
+              <span>Find the right car deal</span>
+              <span>without dealership pressure</span>
+            </h1>
+            <p>
+              Smart Auto Buying helps you compare quotes, spot padded fees, and make a calm move
+              for one small flat fee.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#contact">Start your search</a>
+              <a class="button button-secondary" href="#pricing">See pricing</a>
             </div>
           </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <span class="hero-visual-shape hero-visual-shape-top"></span>
+            <span class="hero-visual-shape hero-visual-shape-bottom"></span>
+            <img
+              class="hero-car-image"
+              src="https://pngimg.com/uploads/porsche/porsche_PNG102871.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="hero-searchbar">
+          <div class="hero-search-item">
+            <span class="hero-search-label">Vehicle</span>
+            <strong>New, used, or lease</strong>
+            <span>Tell us what you are considering</span>
+          </div>
+          <div class="hero-search-item">
+            <span class="hero-search-label">Quote stage</span>
+            <strong>Offer in hand</strong>
+            <span>Compare live dealer numbers</span>
+          </div>
+          <div class="hero-search-item">
+            <span class="hero-search-label">Support type</span>
+            <strong>Review and strategy</strong>
+            <span>Fees, trade, financing, negotiation</span>
+          </div>
+          <a class="button hero-search-button" href="#contact">Get help</a>
         </div>
       </section>
 
