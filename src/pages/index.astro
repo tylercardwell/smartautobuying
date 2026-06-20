@@ -1,0 +1,373 @@
+---
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+import { siAudi, siBmw, siFord, siHonda, siPorsche, siToyota, siVolkswagen } from 'simple-icons';
+import '../styles/global.css';
+
+const navItems = ['Home', 'Service', 'Feature', 'Pricing', 'Testimonial', 'FAQ'];
+
+const serviceLogos = [
+  { name: 'Audi', icon: siAudi },
+  { name: 'BMW', icon: siBmw },
+  { name: 'Ford', icon: siFord },
+  { name: 'Honda', icon: siHonda },
+  { name: 'Porsche', icon: siPorsche },
+  { name: 'Toyota', icon: siToyota },
+  { name: 'Volkswagen', icon: siVolkswagen },
+];
+
+const serviceCards = [
+  {
+    title: 'New Car Buyers',
+    body: 'Know what to ask, what to ignore, and when the numbers are finally worth signing.',
+    icon: 'buyer',
+  },
+  {
+    title: 'Used Car Shoppers',
+    body: 'Compare options with a clear head and avoid wasting weekends on the wrong vehicle.',
+    icon: 'car',
+  },
+  {
+    title: 'Lease Negotiators',
+    body: 'Make sense of money factors, residuals, incentives, and fees before you commit.',
+    icon: 'lease',
+  },
+];
+
+const stats = [
+  ['Flat fee', 'Paid by you'],
+  ['0%', 'Dealer commission'],
+  ['1:1', 'Personal support'],
+  ['Less stress', 'More clarity'],
+];
+
+const posts = [
+  {
+    title: 'How to compare dealer quotes without getting pulled into payment games',
+    description:
+      'Learn what to line up across offers so the real out-the-door price is easy to compare.',
+    href: '/guides/compare-dealer-quotes/',
+    image:
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85',
+    alt: 'A high-end performance car parked on a scenic road',
+  },
+  {
+    title: 'What fees deserve a second look before you sign',
+    description:
+      'Understand which charges are normal, which may be optional, and which deserve questions.',
+    href: '/guides/car-buying-fees/',
+    image:
+      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=85',
+    alt: 'A luxury vehicle front end with polished grille detail',
+  },
+  {
+    title: 'Lease terms that matter more than the monthly payment',
+    description:
+      'See the lease numbers that shape the real cost, from money factor to due-at-signing.',
+    href: '/guides/lease-terms/',
+    image:
+      'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=85',
+    alt: 'A red luxury sports car photographed in dramatic light',
+  },
+];
+
+const footerGroups = [
+  ['Company', 'About us', 'How it works', 'Contact us', 'Pricing', 'Testimonials'],
+  ['Support', 'Buying help', 'Lease help', 'Quote review', 'Privacy policy', 'Status'],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Auto Buying | Flat-fee car buying help</title>
+    <meta
+      name="description"
+      content="Smart Auto Buying gives car shoppers flat-fee guidance, negotiation support, and calm deal review without taking a cut from the car sale."
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="desktop-nav" aria-label="Primary navigation" id="mobile-menu">
+        {navItems.map((item) => <a href={`#${item.toLowerCase()}`}>{item}</a>)}
+      </nav>
+
+      <div class="header-actions">
+        <a class="login-link" href="#pricing">Pricing</a>
+        <a class="button button-small" href="#contact">Book a call</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-copy hero-copy-centered">
+          <span class="hero-eyebrow">Flat-fee car buying support</span>
+          <h1>
+            <span>Smart Auto Buying</span>
+            <span>A car buying advocate,<br />not a traditional broker</span>
+          </h1>
+          <p>
+            You pay a small flat fee for help. Smart Auto Buying does not profit from the car deal,
+            so the advice stays aligned with you.
+          </p>
+          <a class="button" href="#contact">Start your search</a>
+        </div>
+
+        <div class="hero-device-wrap" aria-hidden="true">
+          <span class="hero-device-backdrop"></span>
+          <div class="hero-device">
+            <div class="hero-device-notch"></div>
+            <div class="hero-device-screen">
+              <div class="hero-device-topline">
+                <span>Today</span>
+                <span class="hero-device-pill">3 quotes</span>
+              </div>
+
+              <div class="hero-device-visual">
+                <span class="hero-device-car"></span>
+                <span class="hero-device-road"></span>
+                <span class="hero-device-wheel hero-device-wheel-left"></span>
+                <span class="hero-device-wheel hero-device-wheel-right"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="service" class="section clients-section">
+        <div class="section-heading">
+          <h2>Independent help for a better car deal</h2>
+        </div>
+
+        <div class="client-strip client-strip-logos" aria-label="Brands we help shoppers compare">
+          {serviceLogos.map(({ name, icon }) => (
+            <span class="client-logo" title={name} aria-label={name}>
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path d={icon.path} fill="currentColor" />
+              </svg>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section id="feature" class="section community-section">
+        <div class="section-heading">
+          <h2>Who Smart Auto Buying is suitable for?</h2>
+          <p>Support for new cars, used cars, and leases, all from your side of the table.</p>
+        </div>
+
+        <div class="audience-grid">
+          {
+            serviceCards.map((card) => (
+              <article class="audience-card">
+                <div class={`card-icon ${card.icon}`} aria-hidden="true"></div>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="feature-art" aria-hidden="true">
+          <div class="document-stack">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="mini-car"></div>
+        </div>
+
+        <div class="feature-copy">
+          <h2>The unseen details inside a car deal</h2>
+          <p>
+            Dealer quotes can hide the real story in fees, add-ons, trade values, financing, and
+            lease terms. We help you read the numbers clearly before you make a move.
+          </p>
+          <a class="button" href="/guides/deal-analysis/">Learn More</a>
+        </div>
+      </section>
+
+      <section id="pricing" class="stats-section">
+        <div>
+          <h2>Helping local buyers reinvent the process</h2>
+          <p>Clear incentives, direct advice, and fewer hours lost to dealership back and forth.</p>
+        </div>
+
+        <div class="stats-grid">
+          {stats.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+        </div>
+      </section>
+
+      <section class="feature-section reverse">
+        <div class="feature-copy">
+          <h2>How we keep the pressure out of the purchase</h2>
+          <p>
+            Bring your goals, quotes, or wish list. We help compare options, prepare responses,
+            review paperwork, and decide when the deal is worth signing.
+          </p>
+          <a class="button" href="#contact">Book a call</a>
+        </div>
+
+        <div class="feature-art feature-art-alt" aria-hidden="true">
+          <div class="route-card">
+            <span class="route-dot"></span>
+            <span class="route-line"></span>
+            <span class="route-dot end"></span>
+          </div>
+          <div class="check-card">✓</div>
+        </div>
+      </section>
+
+      <section id="faq" class="section marketing-section">
+        <div class="section-heading">
+          <h2>Caring is the new car buying strategy</h2>
+        </div>
+
+        <div class="post-grid">
+          {
+            posts.map((post) => (
+              <article class="post-card">
+                <div class="post-visual" style={`--post-image: url('${post.image}')`} aria-label={post.alt}></div>
+                <div class="post-content">
+                  <h3>{post.title}</h3>
+                  <a href={post.href}>Read more</a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="contact-copy">
+          <span class="contact-kicker">Contact us</span>
+          <h2>Get a calm second opinion before you sign.</h2>
+          <p>
+            Share where you are in the buying process. We will help you understand the numbers,
+            the pressure points, and the next smart move.
+          </p>
+          <div class="contact-promise">
+            <strong>Flat-fee support</strong>
+            <span>No dealer commission. No incentive to push a specific car.</span>
+          </div>
+        </div>
+
+        <form class="contact-form" action="mailto:hello@smartautobuying.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <label>
+              <span>First name</span>
+              <input type="text" name="firstName" placeholder="Alex" autocomplete="given-name" required />
+            </label>
+            <label>
+              <span>Last name</span>
+              <input type="text" name="lastName" placeholder="Morgan" autocomplete="family-name" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="alex@example.com" autocomplete="email" required />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+            </label>
+          </div>
+
+          <label>
+            <span>What are you shopping for?</span>
+            <select name="shoppingFor" required>
+              <option value="">Select one</option>
+              <option>New car</option>
+              <option>Used car</option>
+              <option>Lease help</option>
+              <option>Dealer quote review</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+
+          <label>
+            <span>How can we help?</span>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Tell us about the vehicle, quote, timeline, or questions you have."
+              required
+            ></textarea>
+          </label>
+
+          <button class="button contact-submit" type="submit">Send request</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="#home">
+          <span>Smart Auto Buying</span>
+        </a>
+        <p>Copyright © 2026 Smart Auto Buying.</p>
+        <p>All rights reserved</p>
+      </div>
+
+      {footerGroups.map((group) => (
+        <div class="footer-group">
+          <h3>{group[0]}</h3>
+          {group.slice(1).map((item) => <a href="#contact">{item}</a>)}
+        </div>
+      ))}
+
+      <form class="subscribe-form" aria-label="Ask for car buying help">
+        <h3>Stay up to date</h3>
+        <label>
+          <span>Your email address</span>
+          <input type="email" placeholder="Your email address" />
+        </label>
+      </form>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.desktop-nav');
+
+      if (menuToggle && menu) {
+        const closeMenu = () => {
+          menu.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        menu.addEventListener('click', (event) => {
+          if (event.target instanceof HTMLAnchorElement) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeMenu();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
