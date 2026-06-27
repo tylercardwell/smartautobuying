@@ -278,13 +278,18 @@ const footerGroups = [
             Share where you are in the buying process. We will help you understand the numbers,
             the pressure points, and the next smart move.
           </p>
-          <div class="contact-promise">
-            <strong>Flat-fee support</strong>
-            <span>No dealer commission. No incentive to push a specific car.</span>
-          </div>
         </div>
 
-        <form class="contact-form" action="mailto:hello@smartautobuying.com" method="post" enctype="text/plain">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/meebgnkl"
+          method="POST"
+        >
+          <label class="form-honeypot" aria-hidden="true">
+            <span>Leave this field empty</span>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </label>
+
           <div class="form-row">
             <label>
               <span>First name</span>
@@ -323,11 +328,13 @@ const footerGroups = [
             <span>How can we help?</span>
             <textarea
               name="message"
-              rows="5"
+              rows="4"
               placeholder="Tell us about the vehicle, quote, timeline, or questions you have."
               required
             ></textarea>
           </label>
+
+          <input type="hidden" name="_subject" value="New Smart Auto Buying contact request" />
 
           <button class="button contact-submit" type="submit">Send request</button>
         </form>
