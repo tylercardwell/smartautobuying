@@ -99,6 +99,7 @@ p {
 .site-brand {
   grid-column: 1;
   justify-self: start;
+  min-width: 0;
 }
 
 .brand-mark {
@@ -123,9 +124,11 @@ p {
 }
 
 .menu-toggle {
+  position: relative;
   display: none;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   margin-right: 10px;
@@ -189,6 +192,7 @@ p {
   align-items: center;
   justify-self: end;
   gap: 14px;
+  min-width: 0;
 }
 
 .login-link {
@@ -1500,7 +1504,7 @@ h2 {
 
 @media (max-width: 1100px) {
   .site-header {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 12px;
     align-items: center;
   }
@@ -1529,6 +1533,7 @@ h2 {
 
   .menu-toggle {
     display: inline-grid;
+    margin-right: 0;
   }
 
   .feature-section,
@@ -1605,15 +1610,45 @@ h2 {
 
 @media (max-width: 640px) {
   .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand toggle"
+      "actions actions";
     padding: 18px 20px;
   }
 
   .brand {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .site-brand {
+    grid-area: brand;
+  }
+
+  .site-brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    grid-area: toggle;
+  }
+
+  .header-actions {
+    grid-area: actions;
+    grid-column: auto;
+    justify-self: stretch;
+    justify-content: flex-end;
   }
 
   .login-link {
     display: none;
+  }
+
+  .button-small {
+    min-height: 38px;
+    padding: 0 16px;
   }
 
   .hero-section {
@@ -1766,6 +1801,30 @@ h2 {
 
   .deal-matrix-grid article {
     padding: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    padding: 16px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 0.92rem;
+  }
+
+  .brand-mark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-actions {
+    justify-content: stretch;
+  }
+
+  .header-actions .button {
+    width: 100%;
   }
 }
 
