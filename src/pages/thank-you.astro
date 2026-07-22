@@ -1,0 +1,47 @@
+---
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+import '../styles/global.css';
+
+const checkIcon =
+  'M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanks | Smart Auto Buying</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="noindex" />
+    <meta
+      name="description"
+      content="Thanks for reaching out to Smart Auto Buying. We will follow up shortly."
+    />
+  </head>
+  <body>
+    <main class="thanks-page">
+      <div class="thanks-card">
+        <span class="thanks-icon" aria-hidden="true">
+          <svg viewBox="0 0 256 256"><path d={checkIcon} fill="currentColor" /></svg>
+        </span>
+        <h1 id="thanks-heading">Request received</h1>
+        <p id="thanks-body">Thanks for reaching out. We will follow up by email shortly.</p>
+        <a class="button" href="/">Back to home</a>
+      </div>
+    </main>
+
+    <script>
+      if (new URLSearchParams(window.location.search).get('src') === 'newsletter') {
+        const heading = document.getElementById('thanks-heading');
+        const body = document.getElementById('thanks-body');
+        if (heading) heading.textContent = "You're on the list";
+        if (body) body.textContent = 'Thanks for signing up. Watch your inbox for occasional car buying tips.';
+      }
+    </script>
+  </body>
+</html>

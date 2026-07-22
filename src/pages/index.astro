@@ -7,7 +7,25 @@ import '@fontsource/manrope/800.css';
 import { siAudi, siBmw, siFord, siHonda, siPorsche, siToyota, siVolkswagen } from 'simple-icons';
 import '../styles/global.css';
 
-const navItems = ['Home', 'Service', 'Feature', 'Pricing', 'Testimonial', 'FAQ'];
+const icons = {
+  car: 'M240,104H229.2L201.42,41.5A16,16,0,0,0,186.8,32H69.2a16,16,0,0,0-14.62,9.5L26.8,104H16a8,8,0,0,0,0,16h8v80a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V184h96v16a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V120h8a8,8,0,0,0,0-16ZM69.2,48H186.8l24.89,56H44.31ZM64,200H40V184H64Zm128,0V184h24v16Zm24-32H40V120H216ZM56,144a8,8,0,0,1,8-8H80a8,8,0,0,1,0,16H64A8,8,0,0,1,56,144Zm112,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,144Z',
+  magnifyingGlass:
+    'M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z',
+  fileText:
+    'M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z',
+  quotes:
+    'M100,56H40A16,16,0,0,0,24,72v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,100,56Zm0,80H40V72h60ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Zm0,80H156V72h60Z',
+  star: 'M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z',
+};
+
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: "Who it's for", href: '#who-its-for' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Why us', href: '#why-us' },
+  { label: 'Reviews', href: '#testimonials' },
+  { label: 'Guides', href: '#guides' },
+];
 
 const serviceLogos = [
   { name: 'Audi', icon: siAudi },
@@ -19,28 +37,49 @@ const serviceLogos = [
   { name: 'Volkswagen', icon: siVolkswagen },
 ];
 
-const serviceCards = [
+const audienceCards = [
   {
     title: 'New Car Buyers',
     body: 'Know what to ask, what to ignore, and when the numbers are finally worth signing.',
-    icon: 'buyer',
+    icon: icons.car,
+    featured: true,
   },
   {
     title: 'Used Car Shoppers',
     body: 'Compare options with a clear head and avoid wasting weekends on the wrong vehicle.',
-    icon: 'car',
+    icon: icons.magnifyingGlass,
   },
   {
     title: 'Lease Negotiators',
     body: 'Make sense of money factors, residuals, incentives, and fees before you commit.',
-    icon: 'lease',
+    icon: icons.fileText,
   },
 ];
 
 const stats = [
   ['15 years', 'Retail automotive experience'],
-  ['0%', 'Dealer commission'],
-  ['1:1', 'Personal support'],
+  ['0%', 'Dealer commission taken'],
+  ['1:1', 'Personal support on every deal'],
+];
+
+const testimonials = [
+  {
+    quote:
+      "They caught two add-on fees I hadn't noticed and told me exactly what to ask the dealer to drop.",
+    name: 'Marcus T.',
+    role: 'Used car buyer, Ohio',
+  },
+  {
+    quote: 'I finally understood what my lease numbers actually meant before I signed anything.',
+    name: 'Priya R.',
+    role: 'Lease renewal, Colorado',
+  },
+  {
+    quote:
+      'No pressure and no sales pitch, just a clear breakdown of the offer and what it should really cost.',
+    name: 'Devon K.',
+    role: 'First-time buyer, Texas',
+  },
 ];
 
 const posts = [
@@ -74,8 +113,24 @@ const posts = [
 ];
 
 const footerGroups = [
-  ['Company', 'About us', 'How it works', 'Contact us', 'Pricing', 'Testimonials'],
-  ['Support', 'Buying help', 'Lease help', 'Quote review', 'Privacy policy', 'Status'],
+  {
+    heading: 'Company',
+    links: [
+      { label: 'Home', href: '#home' },
+      { label: "Who it's for", href: '#who-its-for' },
+      { label: 'How it works', href: '#how-it-works' },
+      { label: 'Why us', href: '#why-us' },
+    ],
+  },
+  {
+    heading: 'Guides',
+    links: [
+      { label: 'Compare dealer quotes', href: '/guides/compare-dealer-quotes/' },
+      { label: 'Car buying fees', href: '/guides/car-buying-fees/' },
+      { label: 'Lease terms', href: '/guides/lease-terms/' },
+      { label: 'Deal analysis', href: '/guides/deal-analysis/' },
+    ],
+  },
 ];
 ---
 
@@ -106,12 +161,11 @@ const footerGroups = [
       </button>
 
       <nav class="desktop-nav" aria-label="Primary navigation" id="mobile-menu">
-        {navItems.map((item) => <a href={`#${item.toLowerCase()}`}>{item}</a>)}
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
 
       <div class="header-actions">
-        <a class="login-link" href="#pricing">Pricing</a>
-        <a class="button button-small" href="#contact">Book a call</a>
+        <a class="button button-small" href="#contact">Get help</a>
       </div>
     </header>
 
@@ -119,57 +173,32 @@ const footerGroups = [
       <section id="home" class="hero-section">
         <div class="hero-panel">
           <div class="hero-copy">
-            <h1>
-              <span>Find the right car deal</span>
-              <span>without dealership pressure</span>
-            </h1>
+            <h1>Find the right car deal <span>without dealership pressure</span></h1>
             <p>
               Smart Auto Buying helps you compare quotes, spot padded fees, and make a calm move
               for one small flat fee.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#contact">Start your search</a>
-              <a class="button button-secondary" href="#pricing">See pricing</a>
+              <a class="button" href="#contact">Get help</a>
+              <a class="button button-secondary" href="#how-it-works">See how it works</a>
             </div>
           </div>
 
-          <div class="hero-visual" aria-hidden="true">
-            <span class="hero-visual-shape hero-visual-shape-top"></span>
-            <span class="hero-visual-shape hero-visual-shape-bottom"></span>
-            <img
-              class="hero-car-image"
-              src="https://pngimg.com/uploads/porsche/porsche_PNG102871.png"
-              alt=""
-            />
+          <div class="hero-visual">
+            <figure class="hero-media">
+              <img
+                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=85"
+                alt="A blue coupe parked on a city street"
+                loading="eager"
+              />
+            </figure>
           </div>
-        </div>
-
-        <div class="hero-searchbar">
-          <div class="hero-search-item">
-            <span class="hero-search-label">Vehicle</span>
-            <strong>New, used, or lease</strong>
-            <span>Tell us what you are considering</span>
-          </div>
-          <div class="hero-search-item">
-            <span class="hero-search-label">Quote stage</span>
-            <strong>Offer in hand</strong>
-            <span>Compare live dealer numbers</span>
-          </div>
-          <div class="hero-search-item">
-            <span class="hero-search-label">Support type</span>
-            <strong>Review and strategy</strong>
-            <span>Fees, trade, financing, negotiation</span>
-          </div>
-          <a class="button hero-search-button" href="#contact">Get help</a>
         </div>
       </section>
 
-      <section id="service" class="section clients-section">
-        <div class="section-heading">
-          <h2>Independent help for a better car deal</h2>
-        </div>
-
-        <div class="client-strip client-strip-logos" aria-label="Brands we help shoppers compare">
+      <section class="trust-section">
+        <p class="trust-heading">Independent help for a better car deal, whatever you're comparing</p>
+        <div class="client-strip" aria-label="Brands we help shoppers compare">
           {serviceLogos.map(({ name, icon }) => (
             <span class="client-logo" title={name} aria-label={name}>
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
@@ -180,17 +209,19 @@ const footerGroups = [
         </div>
       </section>
 
-      <section id="feature" class="section community-section">
-        <div class="section-heading">
-          <h2>Who Smart Auto Buying is suitable for?</h2>
+      <section id="who-its-for" class="section audience-section">
+        <div class="section-heading reveal">
+          <h2>Who Smart Auto Buying helps</h2>
           <p>Support for new cars, used cars, and leases, all from your side of the table.</p>
         </div>
 
-        <div class="audience-grid">
+        <div class="bento-grid">
           {
-            serviceCards.map((card) => (
-              <article class="audience-card">
-                <div class={`card-icon ${card.icon}`} aria-hidden="true"></div>
+            audienceCards.map((card) => (
+              <article class={`bento-card reveal ${card.featured ? 'bento-card--featured' : ''}`}>
+                <span class="bento-icon" aria-hidden="true">
+                  <svg viewBox="0 0 256 256"><path d={card.icon} fill="currentColor" /></svg>
+                </span>
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
               </article>
@@ -199,67 +230,101 @@ const footerGroups = [
         </div>
       </section>
 
-      <section class="feature-section">
-        <div class="feature-art" aria-hidden="true">
-          <div class="document-stack">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="mini-car"></div>
+      <section id="deal-review" class="feature-section">
+        <div class="feature-media reveal">
+          <img
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85"
+            alt="A hand reviewing and marking up a paper quote"
+            loading="lazy"
+          />
         </div>
 
-        <div class="feature-copy">
+        <div class="feature-copy reveal">
           <h2>The unseen details inside a car deal</h2>
           <p>
             Dealer quotes can hide the real story in fees, add-ons, trade values, financing, and
             lease terms. We help you read the numbers clearly before you make a move.
           </p>
-          <a class="button" href="/guides/deal-analysis/">Learn More</a>
+          <a class="button" href="/guides/deal-analysis/">Learn more</a>
         </div>
       </section>
 
-      <section id="pricing" class="stats-section">
-        <div>
+      <section id="why-us" class="stats-section">
+        <div class="reveal">
           <h2>Credibility backed by the numbers</h2>
           <p>15 years in retail automotive, no dealer commission, and personal support on every deal.</p>
         </div>
 
         <div class="stats-grid">
-          {stats.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+          {stats.map(([value, label]) => (
+            <div class="reveal">
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section class="feature-section reverse">
-        <div class="feature-copy">
+      <section id="how-it-works" class="feature-section reverse">
+        <div class="feature-copy reveal">
           <h2>How we keep the pressure out of the purchase</h2>
           <p>
             Bring your goals, quotes, or wish list. We help compare options, prepare responses,
             review paperwork, and decide when the deal is worth signing.
           </p>
-          <a class="button" href="#contact">Book a call</a>
+          <a class="button" href="#contact">Get help</a>
         </div>
 
-        <div class="feature-art feature-art-alt" aria-hidden="true">
-          <div class="route-card">
-            <span class="route-dot"></span>
-            <span class="route-line"></span>
-            <span class="route-dot end"></span>
-          </div>
-          <div class="check-card">✓</div>
+        <div class="feature-media reveal">
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=85"
+            alt="Two people shaking hands after reaching an agreement"
+            loading="lazy"
+          />
         </div>
       </section>
 
-      <section id="faq" class="section marketing-section">
-        <div class="section-heading">
+      <section id="testimonials" class="section testimonial-section">
+        <!-- Placeholder testimonials: replace with real customer quotes before this page goes live. -->
+        <div class="section-heading reveal">
+          <h2>What buyers say after working with us</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          {
+            testimonials.map((item) => (
+              <article class="testimonial-card reveal">
+                <svg class="testimonial-quote-icon" viewBox="0 0 256 256" aria-hidden="true">
+                  <path d={icons.quotes} fill="currentColor" />
+                </svg>
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <svg viewBox="0 0 256 256" aria-hidden="true">
+                      <path d={icons.star} fill="currentColor" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote>{item.quote}</blockquote>
+                <div class="testimonial-attribution">
+                  <strong>{item.name}</strong>
+                  <span>{item.role}</span>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="guides" class="section marketing-section">
+        <div class="section-heading reveal">
           <h2>Caring is the new car buying strategy</h2>
         </div>
 
         <div class="post-grid">
           {
             posts.map((post) => (
-              <article class="post-card">
-                <div class="post-visual" style={`--post-image: url('${post.image}')`} aria-label={post.alt}></div>
+              <article class="post-card reveal">
+                <div class="post-visual" style={`--post-image: url('${post.image}')`} aria-label={post.alt} />
                 <div class="post-content">
                   <h3>{post.title}</h3>
                   <a href={post.href}>Read more</a>
@@ -271,7 +336,7 @@ const footerGroups = [
       </section>
 
       <section id="contact" class="contact-section">
-        <div class="contact-copy">
+        <div class="contact-copy reveal">
           <span class="contact-kicker">Contact us</span>
           <h2>Get a calm second opinion before you sign.</h2>
           <p>
@@ -281,13 +346,16 @@ const footerGroups = [
         </div>
 
         <form
-          class="contact-form"
-          action="https://formspree.io/f/meebgnkl"
+          class="contact-form reveal"
+          action="https://api.web3forms.com/submit"
           method="POST"
         >
+          <input type="hidden" name="access_key" value="5c35de9b-aca1-4752-bef0-0fd725d8b524" />
+          <input type="hidden" name="redirect" value="https://smartautobuying.info/thank-you/" />
+
           <label class="form-honeypot" aria-hidden="true">
             <span>Leave this field empty</span>
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
           </label>
 
           <div class="form-row">
@@ -334,7 +402,7 @@ const footerGroups = [
             ></textarea>
           </label>
 
-          <input type="hidden" name="_subject" value="New Smart Auto Buying contact request" />
+          <input type="hidden" name="subject" value="New Smart Auto Buying contact request" />
 
           <button class="button contact-submit" type="submit">Send request</button>
         </form>
@@ -352,17 +420,32 @@ const footerGroups = [
 
       {footerGroups.map((group) => (
         <div class="footer-group">
-          <h3>{group[0]}</h3>
-          {group.slice(1).map((item) => <a href="#contact">{item}</a>)}
+          <h3>{group.heading}</h3>
+          {group.links.map((link) => <a href={link.href}>{link.label}</a>)}
         </div>
       ))}
 
-      <form class="subscribe-form" aria-label="Ask for car buying help">
+      <form
+        class="subscribe-form"
+        aria-label="Get car buying tips by email"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        <input type="hidden" name="access_key" value="5c35de9b-aca1-4752-bef0-0fd725d8b524" />
+        <input type="hidden" name="subject" value="New Smart Auto Buying newsletter signup" />
+        <input type="hidden" name="redirect" value="https://smartautobuying.info/thank-you/?src=newsletter" />
+        <label class="form-honeypot" aria-hidden="true">
+          <span>Leave this field empty</span>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+        </label>
+
         <h3>Stay up to date</h3>
+        <p>Occasional car buying tips, no spam.</p>
         <label>
           <span>Your email address</span>
-          <input type="email" placeholder="Your email address" />
+          <input type="email" name="email" placeholder="Your email address" required />
         </label>
+        <button class="button button-small subscribe-submit" type="submit">Sign up</button>
       </form>
     </footer>
 
