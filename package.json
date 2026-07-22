@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "12",
     "@fontsource/manrope": "^5.2.8",
     "astro": "^5.11.0",
     "simple-icons": "^16.23.0",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.113.0"
   }
 }
